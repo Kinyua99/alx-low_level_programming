@@ -18,7 +18,7 @@
  * Return: Always 0.
  */
 
-int main(void)/* Prints a random number and states whether */
+int main(void) /* Prints a random number and states whether */
 
 {
 
