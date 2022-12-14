@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define LARGGEST 10000000000
+#define LARGEST 10000000000
 
 /**
  * main - main block
