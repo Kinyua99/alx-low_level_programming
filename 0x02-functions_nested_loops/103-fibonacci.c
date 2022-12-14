@@ -2,8 +2,8 @@
 
 /**
  * main - prints the sum of even valued fibonacci numbers that
- * 	do not ecxeed 4000000
- * 
+ *	do not ecxeed 4000000
+ *
  * Return: Something
  */
 int main(void)
