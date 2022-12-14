@@ -1,16 +1,12 @@
-#include "holberton.h"
+#include "main.h"
 
 
 
 /**
+ * print_alphabet - Make the alphabet
  *
- *   * print_alphabet - Make the alphabet
- *
- *     *
- *
- *       * Return: void
- *
- *         */
+ * Return: void
+ */
 
 void print_alphabet(void)
 
