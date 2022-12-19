@@ -13,21 +13,21 @@ void rev_string(char *s)
 	int cnt, i, j;
 	char *str, temp;
 
-	while (cnt >= 0)
+	while (s[cnt] != '\0')
 	{
-		if (s[cnt] == '\0')
-			break;
 		cnt++;
 	}
 	str =  s;
 
-	for (i = 0; i < (cnt - 1); i++)
+	for (i = 1; i < cnt; i++)
 	{
-		for (j = i + 1; j > 0; j--)
-		{
-			temp = *(str + j);
-			*(str + j) = *(str + (j - 1));
-			*(str + (j - 1)) = temp;
-		}
+		str++;
+	}
+	for (j = 0; j < (cnt / 2); j++)
+	{
+		temp = s[j];
+		s[j] = *str;
+		*str = temp;
+		str--;
 	}
 }
