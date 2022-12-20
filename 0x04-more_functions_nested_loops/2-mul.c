@@ -6,7 +6,7 @@
  * @b: second integer
  * Return: product
  */
-int mul(int 1, int b)
+int mul(int a, int b)
 {
 	return (a * b);
 }
