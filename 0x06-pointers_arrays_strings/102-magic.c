@@ -1,6 +1,9 @@
 #include "main.h"
 
-int main(voi)
+/**
+ * main - modifes code to print a[2] = 98
+ * Return: return 0
+int main(void)
 {
 	int n;
 	int a[5];
