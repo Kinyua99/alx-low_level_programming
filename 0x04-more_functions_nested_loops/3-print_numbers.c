@@ -6,8 +6,8 @@
  */
 void print_numbers(void)
 {
-	int c;
-	for (c 48; c < 58; c++)
-		_putchar(c);
+	int ch;
+	for (ch = 48; ch < 58; ch++)
+		_putchar(ch);
 	_putchar('\n');
 }
