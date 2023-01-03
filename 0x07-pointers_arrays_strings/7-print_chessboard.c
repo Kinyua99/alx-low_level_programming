@@ -2,7 +2,7 @@
 
 /**
  * print_chessboard - prints chessboard
- * @input pointer
+ * @a: input pointer
  * Return: no return
  */
 void print_chessboard(char (*a)[8])
