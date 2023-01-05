@@ -4,7 +4,7 @@
  * is_prime - detects whether an input is a prime number
  * @n: input number
  * @c: iterator
- * Return: 1 if n is prime, 0 if not prime 
+ * Return: 1 if n is prime, 0 if not prime
  */
 int is_prime(unsigned int n, unsigned int c)
 {
