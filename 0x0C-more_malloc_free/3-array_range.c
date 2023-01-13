@@ -21,7 +21,7 @@ int *array_range(int min, int max)
 	{
 		a[i] = min;
 		i++;
-		nin++;
+		min++;
 	}
 	return (a);
 }
