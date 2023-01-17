@@ -6,9 +6,9 @@
  * @age: dog age
  * @owner: dog owner
  * @d: struct dog pointer
- * Return 0 on success
+ * Return 0 on succes
  */
-int main(void)
+void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	if (d)
 	{
