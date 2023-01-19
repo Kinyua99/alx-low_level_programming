@@ -29,7 +29,7 @@ int op_sub(int a, int b)
  * Return: product
  */
 
-int op_mul(int a, int )
+int op_mul(int a, int b)
 {
 	return (a * b);
 }
