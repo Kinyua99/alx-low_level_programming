@@ -1,35 +1,49 @@
 #include "main.h"
-#include <unistd.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <unistd.h>
 #include <fcntl.h>
 
 /**
- * create_file - function that will create a new file and fill with with some
- * content.
- * @filename: name of the file to create.
- * @text_content: text to add to the new file.
- *
- * Return: Always 1 on scucess, -1 on Failure
+ * read_textfile - fuction that read a text file and print it out the POSIX std
+ * out
+ * @filename: body of text to print.
+ * @letters: max char to print.
+ * Return: number of chars printed.
  */
-int create_file(const char *filename, char *text_content)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int err, len, fd;
+	int fd, err, rd;
+	char *buf;
 
-	err = len = fd = 0;
-	if (!filename)
-		return (-1);
+	fd = err = rd = 0;
+	if (!filename || !letters)
+		return (0);
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		return (0);
 
-	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
-		if (fd < 0)
-			return (-1);
-	while (text_content && text_content[len])
-		len++;
+	buf = malloc(sizeof(char) * letters + 1);
+	if (!buf)
+		return (0);
+	rd = read(fd, buf, letters);
+	if (rd < 0)
+	{
+		free(buf);
+		return (0);
+	}
+	buf[letters] = '\0';
+	err = write(STDOUT_FILENO, buf, rd);
+	if (err <= 0)
+	{
+		free(buf);
+		return (0);
+	}
 
-	err = write(fd, text_content, len);
-	if (err < 0)
-		return (-1);
+	free(buf);
 	close(fd);
-	return (1);
+	return (rd);
 }
+
 
