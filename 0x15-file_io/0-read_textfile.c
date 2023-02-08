@@ -1,32 +1,35 @@
 #include "main.h"
-#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 /**
-  * read_textfile - ...
-  * @filename: The source file
-  * @letters: Number of letters to reads and prints
-  *
-  * Return: ...
-  */
-ssize_t read_textfile(const char *filename, size_t letters)
+ * create_file - function that will create a new file and fill with with some
+ * content.
+ * @filename: name of the file to create.
+ * @text_content: text to add to the new file.
+ *
+ * Return: Always 1 on scucess, -1 on Failure
+ */
+int create_file(const char *filename, char *text_content)
 {
-	int fd, readed;
-	char *buff = malloc(sizeof(char *) * letters);
+	int err, len, fd;
 
-	if (!buff)
-		return (0);
-
+	err = len = fd = 0;
 	if (!filename)
-		return (0);
+		return (-1);
 
-	fd = open(filename, O_RDONLY, 0600);
-	if (fd == -1)
-		return (0);
+	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
+		if (fd < 0)
+			return (-1);
+	while (text_content && text_content[len])
+		len++;
 
-	readed = read(fd, buff, letters);
-	write(STDOUT_FILENO, buff, readed);
-
-	free(buff);
+	err = write(fd, text_content, len);
+	if (err < 0)
+		return (-1);
 	close(fd);
-	return (readed);
+	return (1);
 }
+
